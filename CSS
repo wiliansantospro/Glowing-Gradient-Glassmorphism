@@ -1,0 +1,233 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+body
+{
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1d061a;
+}
+.container
+{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    padding-top: 10px;
+}
+i
+{
+    font-size: 2em;
+    letter-spacing: 5px;
+    font-weight: 400;
+    word-spacing: 5px;
+}
+.gradient
+{
+    background: linear-gradient(90deg, #be29ec, #660066, #ff71ce, #05ffa1, #f000ff, #001eff);
+    background-size: 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 10s linear infinite;
+}
+@keyframes animate
+{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+.container1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 40px 0;
+}
+.container1 .box
+{
+    position: relative;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 38px 30px;
+    transition: 0.5s;
+}
+.container1 .box::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 90px;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(-15deg);
+    transition: 0.5s;
+}
+.container1 .box::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 90px;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(-15deg);
+    transition: 0.5s;
+    filter: blur(30px);
+    transition: 0.5s;
+}
+.container1 .box:hover:before,
+.container1 .box:hover:after
+{
+    transform: skewX(0deg);
+    left: 20px;
+    width: calc(100% - 90px);
+}
+.container1 .box:nth-child(1):before,
+.container1 .box:nth-child(1):after
+{
+    background: linear-gradient(300deg, #be29ec, #660066);
+}
+.container1 .box:nth-child(2):before,
+.container1 .box:nth-child(2):after
+{
+    background: linear-gradient(300deg, #ff71ce, #05ffa1);
+}
+.container1 .box:nth-child(3):before,
+.container1 .box:nth-child(3):after
+{
+    background: linear-gradient(300deg, #f000ff, #001eff);
+}
+.container1 .box span
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    pointer-events: none;
+}
+.container1 .box span::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate1 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.container1 .box:hover span::before
+{
+    top: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+.container1 .box span::after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate1 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    animation-delay: -1s;
+}
+.container1 .box:hover span::after
+{
+    bottom: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+@keyframes animate1
+{
+    0%, 100%
+    {
+        transform: translateY(10px);
+    }
+    50%
+    {
+        transform: translateY(-10px);
+    }
+}
+.container1 .box .content
+{
+    position: relative;
+    left: 0;
+    padding: 25px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur (10px);
+    z-index: 1;
+    transition:  0.5s;
+    color: #fff;
+}
+.container1 .box:hover .content
+{
+    left: -25px;
+    padding: 60px 40px;
+}
+.container1 .box .content h2
+{
+    font-size: 1.7em;
+    color: #000000;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 2px #03a9f4;
+    text-align: right;
+}
+.container1 .box .content p
+{
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.4em;
+}
+.container1 .box .content a
+{
+    display: inline-block;
+    font-size: 1.1em;
+    color: #fff;
+    background: #111;
+    padding: 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 5px;
+    box-shadow: 0 5px 15px rgba(4, 31, 107, 0.555);
+}
